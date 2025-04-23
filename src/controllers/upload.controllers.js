@@ -14,17 +14,18 @@ const firmwareDir = "/tmp";
 console.log(firmwareDir);
 
 const uploadFirmware = async (req, res) => {
-  if (req.files.length < 3) {
+  if (!req.files.length == 1) {
     return res.status(400).json({ message: "Missing firmware files" });
   }
-
+  
+  console.log("Received single file upload");
   // Extract the three files
   const [mainBin, mergedBin, partitionBin] = req.files;
 
   console.log("Received files:");
   console.log("Main Firmware:", mainBin.originalname);
-  console.log("Merged Firmware:", mergedBin.originalname);
-  console.log("Partition Table:", partitionBin.originalname);
+  // console.log("Merged Firmware:", mergedBin.originalname);
+  // console.log("Partition Table:", partitionBin.originalname);
 
   res.json({ message: "Firmware uploaded successfully!" });
 };
