@@ -9,7 +9,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 console.log(__dirname, __filename);
 
-const firmwareDir = path.join(__dirname, "../../firmware");
+// const firmwareDir = path.join(__dirname, "../../firmware");
+const firmwareDir = "/tmp";
 console.log(firmwareDir);
 
 const uploadFirmware = async (req, res) => {

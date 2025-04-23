@@ -16,7 +16,8 @@ if (!fs.existsSync(firmwareDir)) {
 // Multer setup for handling file uploads
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, firmwareDir);  // your target folder for storing files
+      // cb(null, firmwareDir);  // your target folder for storing files
+      cb(null, '/tmp');
     },
     filename: (req, file, cb) => {
       cb(null, file.originalname);  // unique filename
